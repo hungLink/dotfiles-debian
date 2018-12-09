@@ -1,19 +1,3 @@
-" Line numbering should have the relative number and also the absolute.
-set number relativenumber
-" set mouse=""
-set linebreak
-" configure the use of multiple tabs
-set switchbuf=usetab,newtab
-nnoremap <F8> :sbnext<CR>
-nnoremap <S-F8> :sbprevious<CR>
-syntax on
-
-map <Enter> o<ESC>
-
-let g:SuperTabDefaultCompletionType = "<c-n>"
-highlight Folded ctermbg=0 ctermfg=7
-
-"""""""""""""""""" VUNDLE CONFIG """""""""""""""""""""""""
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -63,4 +47,3 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-
