@@ -3,19 +3,24 @@
 ####----- HARDLINK CONFIG FILES -----####
 files=$(find home -name "*")
 for file in $files; do
-	#if its a dir skip it
+	#Deterimine the path where the config file should go
+	link=$HOME$(echo $file | sed "s/home//")
+
+	#if its a dir create it
 	if [[ -d $file ]]; then
-    		continue	
+		#if the dir already exists, do nothing. Else Create it.
+		if [[ -d $link ]]; then
+			continue
+		fi
+		mkdir $link
+		continue
 
 	elif [[ ! -f $file ]]; then
     		echo "ERROR! $file isn't valid for some reason!"
-	
 		continue
 	fi
 
 	#We have a file on our hands
-	#Deterimine the path where the config file should go
-	link=$(echo $file | sed "s/home/~/")
 	#replace the ~ with the home path for the user
 	link="${link/#\~/$HOME}"
 
@@ -50,8 +55,7 @@ for file in $files; do
 done
 
 ####----- BASH AND SCRIPTS FOLDER -----####
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-appendToBashRC="if [ -f $DIR/.bash_aliases ]; then . $DIR/.bash_aliases; fi; if [ -f $DIR/.bash_functions ]; then . $DIR/.bash_functions; fi;"
+appendToBashRC="if [ -f ~/.bash_custom/.bash_aliases ]; then . ~/.bash_custom/.bash_aliases; fi; if [ -f ~/.bash_custom/.bash_functions ]; then . ~/.bash_custom/.bash_functions; fi;"
 grepAppend=$(echo $appendToBashRC | sed "s/\[/\\\[/g" | sed "s/\]/\\\]/g")
 if [[ $(grep "$grepAppend" ~/.bashrc) ]]; then
 	echo "Bash custom has already be setup. try running 'source ~/.bashrc' or opening an new terminal session.";
@@ -79,6 +83,5 @@ else
 	echo -e $appendToBashRC >> ~/.bashrc
 	echo -e "" >> ~/.bashrc
 fi;
-source ~/.bashrc
 
 
