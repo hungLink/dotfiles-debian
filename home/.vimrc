@@ -28,6 +28,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Other plugins
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'vim-airline/vim-airline'
 
 " The following are examples of different formats supported. Keep Plugin commands between vundle#begin/end.
 
