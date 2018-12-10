@@ -1,14 +1,18 @@
 " Line numbering should have the relative number and also the absolute.
 set number relativenumber
+
 " set mouse=""
-set linebreak
-" configure the use of multiple tabs
-set switchbuf=usetab,newtab
-nnoremap <F8> :sbnext<CR>
-nnoremap <S-F8> :sbprevious<CR>
+" set linebreak
+
 syntax on
 
+" CUSTOM KEY BINDINGS
+" enter to create newline
 map <Enter> o<ESC>
+" ctrl + hjlk to navigate windows
+map <C-J> <C-W>j<C-W>_
+map <C-K> <C-W>k<C-W>_
+
 
 let g:SuperTabDefaultCompletionType = "<c-n>"
 highlight Folded ctermbg=0 ctermfg=7

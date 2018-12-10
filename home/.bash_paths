@@ -1,0 +1,2 @@
+##Add scripts folder to PATH##
+PATH="$PATH:$HOME/scripts"
