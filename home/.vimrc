@@ -1,23 +1,44 @@
-" Line numbering should have the relative number and also the absolute.
-set number relativenumber
-
-" set mouse=""
-" set linebreak
-
-syntax on
-
-" CUSTOM KEY BINDINGS
+runtime .vim/rc/vundleConfig.vim
+"#######  CUSTOM KEY BINDINGS  ########
+" map space to leader
+map <space> \
 " enter to create newline
 map <Enter> o<ESC>
 " ctrl + hjlk to navigate windows
 map <C-J> <C-W>j<C-W>_
 map <C-K> <C-W>k<C-W>_
 
-
-let g:SuperTabDefaultCompletionType = "<c-n>"
+"########  GENERAL SETTINGS  ########
+" Line numbering should have the relative number and also the absolute.
+set number relativenumber
+" Enable syntax highlighting
+syntax on
+" Softer color for folded code. The default was piercing bright blue.
 highlight Folded ctermbg=0 ctermfg=7
 
-"""""""""""""""""" VUNDLE CONFIG """""""""""""""""""""""""
+"########  BUFFER SETTINGS  ########
+" This allows buffers to be hidden if you've modified a buffer.
+set hidden
+
+" To open a new empty buffer
+nmap <leader>t :enew<cr>
+
+" Move to next/previous buffer
+nmap <leader><PageDown> :bnext<CR>
+nmap <leader><PageUp> :bprevious<CR>
+
+" Close the current buffer and move to the previous one
+" This replicates the idea of closing a tab
+nmap <leader>q :bp <BAR> bd #<CR>
+
+"########  VIM AIRLINE CONFIG ########
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+
+"########  VUNDLE CONFIG  ########
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
