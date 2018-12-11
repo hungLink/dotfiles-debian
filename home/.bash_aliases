@@ -16,6 +16,7 @@ alias cdSmash="cd /media/gunrugger/digital_media/games/roms/gamecube/melee/"
 # ls
 alias a="ls -A"
 alias l="ls -lAh"
+alias la="ls -lA"
 alias c="clear; clear"
 
 #coreutil commands
@@ -32,7 +33,14 @@ alias stopDigitalMediaServer='pkill -INT mediatomb'
 alias gitUncommit='git reset --soft HEAD^'
 alias gitStage='git stage * */.*'
 
+# ranger alias
+alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+
 # strings
 alias shrug='echo ¯\\_\(ツ\)_/¯'
 alias overline='echo "‾"'
+
+#vim aliases
+alias valiases="vim ~/.bash_aliases"
+alias vvim="vim ~/.vimrc"
 
