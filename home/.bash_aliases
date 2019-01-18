@@ -44,3 +44,7 @@ alias overline='echo "‾"'
 alias valiases="vim ~/.bash_aliases"
 alias vvim="vim ~/.vimrc"
 
+#littleDebian only
+alias spellbook="$HOME/Documents/pathfinder_2/Sahmi_Illimi/spellbook"
+alias trackpadDisable="xinput set-int-prop 11 \"Device Enabled\" 8 0"
+alias trackpadEnable="xinput set-int-prop 11 \"Device Enabled\" 8 1"
