@@ -20,42 +20,44 @@ bar {
 #focus/mouse options
 focus_follows_mouse no
 
-#### VARS ####
-set $bark 		paplay /usr/share/sounds/gnome/default/alerts/bark.ogg
+#### CONFIG VARS ####
+set $resizeSml 	1 px or 1 ppt
+set $resizeMed 	5 px or 5 ppt
+set $resizeLrg 	20 px or 20 ppt
+set $resizeXLg 	100 px or 100 ppt
+set $volSm 	1%
+set $volMd 	5%
+set $volLg 	20%
+
+#### PROGRAMS ####
+set $displays 		arandr
+set $calculator 	qalculate
 set $file-man 		ranger
 set $term 		gnome-terminal
+set $text-editor 	vim
 set $volume 		amixer set Master 
 set $volume-interface 	amixer set Master 
 
-#### BUTTONS ####
-set $mute		XF86AudioMute
-set $volUp		XF86AudioRaiseVolume
-set $volDown		XF86AudioLowerVolume
-
-set $mod 		Mod4
-set $ctl		Control
-set $sht 		Shift
-set $alt 		Alt
-
-set $modA		$mod+$alt
-set $modC		$mod+$ctl
-set $modS		$mod+$sht
-set $modAC		$mod+$alt+$ctl
-set $modAS		$mod+$alt+$sht
-set $modCS		$mod+$ctl+$sht
-set $modACS		$mod+$alt+$ctl+$sht
+#### BUTTON COMBOS ####
+set $mod  		Mod4
+set $modA 		Mod4+Alt
+set $modC 		Mod4+Control
+set $modS 		Mod4+Shift
+set $modAC 		Mod4+Alt+Control
+set $modAS 		Mod4+Alt+Shift
+set $modCS 		Mod4+Control+Shift
+set $modACS 		Mod4+Alt+Control+Shift
 
 ####  FUNCTION KEYS  ####
 # audio buttons
-bindsym $mute 		exec amixer set Master toggle
-bindsym $ctl+$volUp 	exec $volume 1%+; $bark"
-bindsym $ctl+$volDown	exec $volume 1%-; $bark"
-bindsym $volUp 		exec $volume 5%+; $bark"
-bindsym $volDown 	exec $volume 5%-; $bark"
-bindsym $sht+$volUp 	exec $volume 20%+; $bark"
-bindsym $sht+$volDown 	exec $volume 20%-; $bark"
-# super+audio buttons
-bindsym $mod+XF86AudioMute exec $term -e $volume-interface
+bindsym XF86AudioMute			exec amixer set Master toggle
+bindsym $mod+XF86AudioMute		exec $term -e $volume-interface
+bindsym XF86AudioRaiseVolume		exec $volume $volMd+
+bindsym XF86AudioLowerVolume 		exec $volume $volMd-
+bindsym Control+XF86AudioRaiseVolume	exec $volume $volSm+
+bindsym Control+XF86AudioLowerVolume	exec $volume $volSm-
+bindsym Shift+XF86AudioRaiseVolume	exec $volume $volLg+
+bindsym Shift+XF86AudioLowerVolume	exec $volume $volLg-
 
 ##~~ SUPER (launcher)
 #~ #	- Go to workspace #
@@ -77,11 +79,14 @@ bindsym $mod+minus	split v
 bindsym $mod+bar	split h
 #~ a	- 
 #~ b	- 
-#~ c	- 
-#~ d	- 
+#~ c	- Calculator
+bindsym $mod+c		exec $calculator
+#~ d	- Displays
+bindsym $mod+d		exec $displays
 #~ e	- Text editor (vim)
-bindsym $mod+e		exec $term -e $file-man
-#~ f	- File manager (ranger
+bindsym $mod+e		exec $term -e $text-editor
+#~ f	- File manager (ranger)
+bindsym $mod+f		exec $term -e $file-man
 #~ g	- Games (Not yet written. Does nothing.)
 #~ h	- Help (Not yet written. Does nothing.)
 #~ i	- 
@@ -107,27 +112,31 @@ bindsym $mod+w		exec firefox
 
 ##~~ SHIFT+SUPER (window management)
 #~ yuio	- Resize focused window by one unit
+
+
+
+
 #~ Add the following keys to modify the increment unit to the following:
 #~ ctl = 5, alt = 20, ctl+alt = 100
-bindsym $modS+y		resize shrink width 1 px or 1 ppt
-bindsym $modS+u		resize shrink height 1 px or 1 ppt
-bindsym $modS+i		resize grow height 1 px or 1 ppt
-bindsym $modS+o		resize grow width 1 px or 1 ppt
+bindsym $modS+y		resize shrink width $resizeSml
+bindsym $modS+u		resize shrink height $resizeSml
+bindsym $modS+i		resize grow height $resizeSml
+bindsym $modS+o		resize grow width $resizeSml
 #ctl
-bindsym $modCS+y	resize shrink width 5 px or 5 ppt
-bindsym $modCS+u	resize shrink height 5 px or 5 ppt
-bindsym $modCS+i	resize grow height 5 px or 5 ppt
-bindsym $modCS+o	resize grow width 5 px or 5 ppt
+bindsym $modCS+y	resize shrink width $resizeMed
+bindsym $modCS+u	resize shrink height $resizeMed
+bindsym $modCS+i	resize grow height $resizeMed
+bindsym $modCS+o	resize grow width $resizeMed
 #alt
-bindsym $modAS+y	resize shrink width 20 px or 20 ppt
-bindsym $modAS+u	resize shrink height 20 px or 20 ppt
-bindsym $modAS+i	resize grow height 20 px or 20 ppt
-bindsym $modAS+o	resize grow width 20 px or 20 ppt
+bindsym $modAS+y	resize shrink width $resizeLrg
+bindsym $modAS+u	resize shrink height $resizeLrg
+bindsym $modAS+i	resize grow height $resizeLrg
+bindsym $modAS+o	resize grow width $resizeLrg
 #clt+alt
-bindsym $modACS+y	resize shrink width 100 px or 100 ppt
-bindsym $modACS+u	resize shrink height 100 px or 100 ppt
-bindsym $modACS+i	resize grow height 100 px or 100 ppt
-bindsym $modACS+o	resize grow width 100 px or 100 ppt
+bindsym $modACS+y	resize shrink width $resizeXLg
+bindsym $modACS+u	resize shrink height $resizeXLg
+bindsym $modACS+i	resize grow height $resizeXLg
+bindsym $modACS+o	resize grow width $resizeXLg
 #~ hjkl - Move focus
 bindsym $modS+h		focus left
 bindsym $modS+j		focus down
