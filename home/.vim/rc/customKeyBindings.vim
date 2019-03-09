@@ -5,15 +5,17 @@ map <space> \
 " #######################################
 " LEADER COMMANDS!
 " a - select all
-noremap <leader>a ggVG
+nnoremap <leader>a ggVG
 
 " l - Toggle relative line numbering
-noremap <leader>l :set relativenumber!<enter>
+nnoremap <leader>l :set relativenumber!<enter>
 
 " s - Toggle syntax
-noremap <leader>s :if exists("g:syntax_on") \| syntax off \| else \| syntax enable \| endif<enter> 
+nnoremap <leader>s :if exists("g:syntax_on") \| syntax off \| else \| syntax enable \| endif<enter> 
 " #######################################
 
 " enter to create newline
-map <Enter> o<ESC>
+nnoremap <Enter> o<ESC>
 
+" Q - run the q macro
+nnoremap Q @q
