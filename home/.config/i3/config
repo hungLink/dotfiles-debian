@@ -9,7 +9,6 @@
 
 ####  GENERAL SETTINGS  ####
 #set mod to super key
-set $mod Mod4
 # Window title/bar font. Bar can be overridden.
 font pango:monospace 10
 bar {
@@ -21,44 +20,67 @@ bar {
 #focus/mouse options
 focus_follows_mouse no
 
-#alert sounds
-set $bark paplay /usr/share/sounds/gnome/default/alerts/bark.ogg
+#### VARS ####
+set $bark 		paplay /usr/share/sounds/gnome/default/alerts/bark.ogg
+set $file-man 		ranger
+set $term 		gnome-terminal
+set $volume 		amixer set Master 
+set $volume-interface 	amixer set Master 
+
+#### BUTTONS ####
+set $mute		XF86AudioMute
+set $volUp		XF86AudioRaiseVolume
+set $volDown		XF86AudioLowerVolume
+
+set $mod 		Mod4
+set $ctl		Control
+set $sht 		Shift
+set $alt 		Alt
+
+set $modA		$mod+$alt
+set $modC		$mod+$ctl
+set $modS		$mod+$sht
+set $modAC		$mod+$alt+$ctl
+set $modAS		$mod+$alt+$sht
+set $modCS		$mod+$ctl+$sht
+set $modACS		$mod+$alt+$ctl+$sht
 
 ####  FUNCTION KEYS  ####
 # audio buttons
-bindsym XF86AudioMute exec "amixer set Master toggle"
-bindsym Control+XF86AudioRaiseVolume exec "amixer set Master 1%+; $bark"
-bindsym Control+XF86AudioLowerVolume exec "amixer set Master 1%-; $bark"
-bindsym XF86AudioRaiseVolume exec "amixer set Master 5%+; $bark"
-bindsym XF86AudioLowerVolume exec "amixer set Master 5%-; $bark"
-bindsym Shift+XF86AudioRaiseVolume exec "amixer set Master 20%+; $bark"
-bindsym Shift+XF86AudioLowerVolume exec "amixer set Master 20%-; $bark"
+bindsym $mute 		exec amixer set Master toggle
+bindsym $ctl+$volUp 	exec $volume 1%+; $bark"
+bindsym $ctl+$volDown	exec $volume 1%-; $bark"
+bindsym $volUp 		exec $volume 5%+; $bark"
+bindsym $volDown 	exec $volume 5%-; $bark"
+bindsym $sht+$volUp 	exec $volume 20%+; $bark"
+bindsym $sht+$volDown 	exec $volume 20%-; $bark"
 # super+audio buttons
-bindsym $mod+XF86AudioMute exec "gnome-terminal -e alsamixer"
+bindsym $mod+XF86AudioMute exec $term -e $volume-interface
 
 ##~~ SUPER (launcher)
 #~ #	- Go to workspace #
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1		workspace 1
+bindsym $mod+2		workspace 2
+bindsym $mod+3		workspace 3
+bindsym $mod+4		workspace 4
+bindsym $mod+5		workspace 5
+bindsym $mod+6		workspace 6
+bindsym $mod+7		workspace 7
+bindsym $mod+8		workspace 8
+bindsym $mod+9		workspace 9
+bindsym $mod+0		workspace 10
 #~ spc	- System search (program name)
-bindsym $mod+space exec dmenu_run
+bindsym $mod+space	exec dmenu_run
 #~ -	- New windows open up to the right.
-bindsym $mod+minus split v
+bindsym $mod+minus	split v
 #~ |	- New windows open up downward.
-bindsym $mod+bar split h
+bindsym $mod+bar	split h
 #~ a	- 
 #~ b	- 
 #~ c	- 
 #~ d	- 
 #~ e	- Text editor (vim)
+bindsym $mod+e		exec $term -e $file-man
 #~ f	- File manager (ranger
 #~ g	- Games (Not yet written. Does nothing.)
 #~ h	- Help (Not yet written. Does nothing.)
@@ -74,49 +96,66 @@ bindsym $mod+bar split h
 #~ r	- 
 #~ s	- 
 #~ t	- Terminal
-bindsym $mod+t exec gnome-terminal
+bindsym $mod+t		exec $term
 #~ u	- 
 #~ v	- Video Player
 #~ w	- Web browser
-bindsym $mod+w exec firefox
+bindsym $mod+w		exec firefox
 #~ x	- 
 #~ y	- 
 #~ z	- 
 
 ##~~ SHIFT+SUPER (window management)
-#~ yuio	- Resize focused window
-bindsym $mod+Shift+y resize shrink width 1 px or 1 ppt
-bindsym $mod+Shift+u resize shrink height 1 px or 1 ppt
-bindsym $mod+Shift+i resize grow height 1 px or 1 ppt
-bindsym $mod+Shift+o resize grow width 1 px or 1 ppt
+#~ yuio	- Resize focused window by one unit
+#~ Add the following keys to modify the increment unit to the following:
+#~ ctl = 5, alt = 20, ctl+alt = 100
+bindsym $modS+y		resize shrink width 1 px or 1 ppt
+bindsym $modS+u		resize shrink height 1 px or 1 ppt
+bindsym $modS+i		resize grow height 1 px or 1 ppt
+bindsym $modS+o		resize grow width 1 px or 1 ppt
+#ctl
+bindsym $modCS+y	resize shrink width 5 px or 5 ppt
+bindsym $modCS+u	resize shrink height 5 px or 5 ppt
+bindsym $modCS+i	resize grow height 5 px or 5 ppt
+bindsym $modCS+o	resize grow width 5 px or 5 ppt
+#alt
+bindsym $modAS+y	resize shrink width 20 px or 20 ppt
+bindsym $modAS+u	resize shrink height 20 px or 20 ppt
+bindsym $modAS+i	resize grow height 20 px or 20 ppt
+bindsym $modAS+o	resize grow width 20 px or 20 ppt
+#clt+alt
+bindsym $modACS+y	resize shrink width 100 px or 100 ppt
+bindsym $modACS+u	resize shrink height 100 px or 100 ppt
+bindsym $modACS+i	resize grow height 100 px or 100 ppt
+bindsym $modACS+o	resize grow width 100 px or 100 ppt
 #~ hjkl - Move focus
-bindsym $mod+shift+h focus left
-bindsym $mod+shift+j focus down
-bindsym $mod+shift+k focus up
-bindsym $mod+shift+l focus right
+bindsym $modS+h		focus left
+bindsym $modS+j		focus down
+bindsym $modS+k		focus up
+bindsym $modS+l		focus right
 #~ nm,. - Move active window position
-bindsym $mod+Shift+n move left
-bindsym $mod+Shift+m move down
-bindsym $mod+Shift+comma move up
-bindsym $mod+Shift+period move right
+bindsym $modS+n		move left
+bindsym $modS+m		move down
+bindsym $modS+comma	move up
+bindsym $modS+period	move right
 #~ #	- Move focused window to workspace #
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $modS+1		move container to workspace 1
+bindsym $modS+2		move container to workspace 2
+bindsym $modS+3		move container to workspace 3
+bindsym $modS+4		move container to workspace 4
+bindsym $modS+5		move container to workspace 5
+bindsym $modS+6		move container to workspace 6
+bindsym $modS+7		move container to workspace 7
+bindsym $modS+8		move container to workspace 8
+bindsym $modS+9		move container to workspace 9
+bindsym $modS+0		move container to workspace 10
 # pc	- Toggle tiling / floating on active window
-bindsym $mod+Shift+space floating toggle
+bindsym $modS+space	floating toggle
 #~ -	- New windows open up to the right.
-bindsym $mod+Shift+minus split v
+bindsym $modS+minus	split v
 #~ |	- New windows open up downward.
-bindsym $mod+Shift+bar split h
-#~ a	- 
+bindsym $modS+bar	split h
+#~ a		- 
 #~ b	- 
 #~ c	- 
 #~ d	- 
@@ -125,26 +164,28 @@ bindsym $mod+Shift+bar split h
 #~ g	- 
 #~ p	- 
 #~ q	- Kill active window
-bindsym $mod+Shift+q kill
+bindsym $modS+q		kill
 #~ r	- Refresh i3config
-bindsym $mod+Shift+r restart
+bindsym $modS+r		restart
 #~ s	- Change layout to stacking
-bindsym $mod+Shift+s layout stacking
+bindsym $modS+s		layout stacking
 #~ t	- Change layout to tabbed
-bindsym $mod+Shift+t layout tabbed
+bindsym $modS+t		layout tabbed
 #~ v	- Change layout to Verticle Split (You can also use - and |)
-bindsym $mod+Shift+v split v
+bindsym $modS+v		split v
 #~ w	- 
 #~ x	- 
 #~ z	- 
 
 ##~~ CTRL+SUPER (System commands)
 #~ e 	- End i3 session (log out)
-bindsym $mod+Control+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $modC+e		exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 #~ l	- Lock screen
-bindsym $mod+Control+l exec "c=$(shuf ~/.personalPreferences/favoriteColors | head -1 | cut -f2); i3lock --color $c"
+bindsym $modC+l		exec "c=$(shuf ~/.personalPreferences/favoriteColors | head -1 | cut -f2); i3lock --color $c"
 #~ r	- Reload the i3 configuration file.
-bindsym $mod+Control+r reload
+bindsym $modC+r		reload
 #~ R	- Restart i3.
-bindsym $mod+Shift+Control+r restart
+bindsym $modCS+r	restart
+
+
 
