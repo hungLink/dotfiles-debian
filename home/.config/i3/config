@@ -21,26 +21,8 @@ bar {
 #focus/mouse options
 focus_follows_mouse no
 
-#alert shounds
+#alert sounds
 set $bark paplay /usr/share/sounds/gnome/default/alerts/bark.ogg
-
-####  LAUNCHER SHORTCUTS  ####
-# program launcher
-bindsym $mod+d exec dmenu_run
-bindsym $mod+f exec firefox
-# bindsym $mod+r exec ranger
-bindsym $mod+t exec i3-sensible-terminal
-
-
-####  WINDOW MANAGEMENT  ####
-# kill focused window
-bindsym $mod+Shift+q kill
-
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-
 
 ####  FUNCTION KEYS  ####
 # audio buttons
@@ -54,40 +36,8 @@ bindsym Shift+XF86AudioLowerVolume exec "amixer set Master 20%-; $bark"
 # super+audio buttons
 bindsym $mod+XF86AudioMute exec "gnome-terminal -e alsamixer"
 
-# lock fn key
-bindsym XF86ScreenSaver exec "i3lock"
-
-# change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
-
-# move focused window
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
-bindsym $mod+Shift+h move left
-
-# use | and - to change the direction in which new windows spawn
-bindsym $mod+minus split v
-bindsym $mod+bar split h
-
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+Shift+s layout stacking
-bindsym $mod+Shift+t layout tabbed
-bindsym $mod+s layout toggle split
-
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
-
-# switch to workspace
+##~~ SUPER (launcher)
+#~ #	- Go to workspace #
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
@@ -98,8 +48,58 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
+#~ spc	- System search (program name)
+bindsym $mod+space exec dmenu_run
+#~ -	- New windows open up to the right.
+bindsym $mod+minus split v
+#~ |	- New windows open up downward.
+bindsym $mod+bar split h
+#~ a	- 
+#~ b	- 
+#~ c	- 
+#~ d	- 
+#~ e	- Text editor (vim)
+#~ f	- File manager (ranger
+#~ g	- Games (Not yet written. Does nothing.)
+#~ h	- Help (Not yet written. Does nothing.)
+#~ i	- 
+#~ j	- 
+#~ k	- 
+#~ l	- 
+#~ m	- Music
+#~ n	- 
+#~ o	- 
+#~ p	- PDF launcher
+#~ q	- 
+#~ r	- 
+#~ s	- 
+#~ t	- Terminal
+bindsym $mod+t exec gnome-terminal
+#~ u	- 
+#~ v	- Video Player
+#~ w	- Web browser
+bindsym $mod+w exec firefox
+#~ x	- 
+#~ y	- 
+#~ z	- 
 
-# move focused container to workspace
+##~~ SHIFT+SUPER (window management)
+#~ yuio	- Resize focused window
+bindsym $mod+Shift+y resize shrink width 1 px or 1 ppt
+bindsym $mod+Shift+u resize shrink height 1 px or 1 ppt
+bindsym $mod+Shift+i resize grow height 1 px or 1 ppt
+bindsym $mod+Shift+o resize grow width 1 px or 1 ppt
+#~ hjkl - Move focus
+bindsym $mod+shift+h focus left
+bindsym $mod+shift+j focus down
+bindsym $mod+shift+k focus up
+bindsym $mod+shift+l focus right
+#~ nm,. - Move active window position
+bindsym $mod+Shift+n move left
+bindsym $mod+Shift+m move down
+bindsym $mod+Shift+comma move up
+bindsym $mod+Shift+period move right
+#~ #	- Move focused window to workspace #
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace 3
@@ -110,17 +110,41 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
-
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+# pc	- Toggle tiling / floating on active window
+bindsym $mod+Shift+space floating toggle
+#~ -	- New windows open up to the right.
+bindsym $mod+Shift+minus split v
+#~ |	- New windows open up downward.
+bindsym $mod+Shift+bar split h
+#~ a	- 
+#~ b	- 
+#~ c	- 
+#~ d	- 
+#~ e	- 
+#~ f	- 
+#~ g	- 
+#~ p	- 
+#~ q	- Kill active window
+bindsym $mod+Shift+q kill
+#~ r	- Refresh i3config
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+#~ s	- Change layout to stacking
+bindsym $mod+Shift+s layout stacking
+#~ t	- Change layout to tabbed
+bindsym $mod+Shift+t layout tabbed
+#~ v	- Change layout to Verticle Split (You can also use - and |)
+bindsym $mod+Shift+v split v
+#~ w	- 
+#~ x	- 
+#~ z	- 
 
-# resize window (you can also use the mouse for that)
-bindsym $mod+y resize shrink width 1 px or 1 ppt
-bindsym $mod+u resize shrink height 1 px or 1 ppt
-bindsym $mod+i resize grow height 1 px or 1 ppt
-bindsym $mod+o resize grow width 1 px or 1 ppt
+##~~ CTRL+SUPER (System commands)
+#~ e 	- End i3 session (log out)
+bindsym $mod+Control+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+#~ l	- Lock screen
+bindsym $mod+Control+l exec "c=$(shuf ~/.personalPreferences/favoriteColors | head -1 | cut -f2); i3lock --color $c"
+#~ r	- Reload the i3 configuration file.
+bindsym $mod+Control+r reload
+#~ R	- Restart i3.
+bindsym $mod+Shift+Control+r restart
 
