@@ -5,3 +5,6 @@ set number relativenumber
 " Enable syntax highlighting
 syntax on
 
+" Set number formats for incrementing letters and numbers
+set nrformats=alpha
+
