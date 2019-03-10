@@ -33,6 +33,7 @@ set $volLg 	20%
 set $displays 		arandr
 set $calculator 	qalculate
 set $file-man 		ranger
+set $pass-man 		keepassx
 set $term 		gnome-terminal
 set $text-editor 	vim
 set $volume 		amixer set Master 
@@ -96,7 +97,8 @@ bindsym $mod+f		exec $term -e $file-man
 #~ m	- Music
 #~ n	- 
 #~ o	- 
-#~ p	- PDF launcher
+#~ p	- Password Manager
+bindsym $mod+p 		exec $pass-man
 #~ q	- 
 #~ r	- 
 #~ s	- 
