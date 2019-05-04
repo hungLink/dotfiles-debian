@@ -1,14 +1,15 @@
 #!/usr/bin/python3
 
 ####  IMPORTS  ####
-import os, sys
-import filecmp
+import filecmp, os, subprocess, sys
 
 ####  VARIABLES  ####
 backupFileExt = ".sysconBak"
 repoHomeDir = "home"
 sysHomeDir = os.path.expanduser("~")
+dependanciesFile = "./installDependancies.sh"
 
+dependanciesMessage = "Would you like to install your favorite packages and so a bunch of automated setup like a winner?"
 appendToBashRC="if [ -f ~/.bash_include ]; then . ~/.bash_include; fi;"
 bashRcFile = sysHomeDir + "/.bashrc"
 
@@ -21,6 +22,19 @@ def makeLink(src, dst):
 
 def fetchInode(file):
     return os.stat(file).st_ino
+
+def yesOrNo():
+	# raw_input returns the empty string for "enter"
+	yes = {'yeehaw','yep','yeppers','yes','ye','y'}
+	no = {'nope','nopers','no','n'}
+
+	choice = input().lower()
+	if choice in yes:
+		return True
+	elif choice in no:
+		return False
+	else:
+		sys.stdout.write("Please respond with 'yes' or 'no'")
 
 ####  MAIN LOOP  ####
 ## Make sure all the files in the repo are properly linked to the config files in the system.
@@ -63,4 +77,8 @@ for path, dirs, files in os.walk(os.path.relpath("./home")):
 if not appendToBashRC in open(bashRcFile).read():
     with open(bashRcFile, "a") as file:
         file.write(appendToBashRC)
+
+print(dependanciesMessage)
+if yesOrNo():
+	subprocess.call(dependanciesFile)
 
