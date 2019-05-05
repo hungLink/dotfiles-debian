@@ -69,7 +69,7 @@ for path, dirs, files in os.walk(os.path.relpath("./home")):
             continue
 
         # Else, move the existing sysFile to sysFile.sysConBak and make the link.
-	print ("moving %s to $s%s" % (sysFile, sysfile, backupFileExt))
+        print ("moving %s to %s%s" % (sysFile, sysFile, backupFileExt))
         os.rename(sysFile, sysFile+backupFileExt)
         makeLink(repoFile, sysFile)
 
