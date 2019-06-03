@@ -1,3 +1,5 @@
+alias aliases="vim ~/.bash_aliases; source ~/.bashrc"
+
 # dir commands
 alias ..='cd ..; a'
 alias ..1='cd ..; a'
@@ -19,11 +21,12 @@ alias l="ls -lAh"
 alias la="ls -lA"
 alias c="clear; clear"
 
-#coreutil commands
+#Command Shorthand
 alias copy="xclip -sel clip"
 alias grep-history='history | grep'
 alias esed='sed -E'
 alias updade='sudo apt-get update; sudo apt-get upgrade'
+alias pss="pass show -c sudo; exit"
 
 # digital media server commands
 alias startDigitalMediaServer='mediatomb -e eno1 -a /media/gunrugger/digital_media/video/ -a /media/gunrugger/digital_media/music/ -d'

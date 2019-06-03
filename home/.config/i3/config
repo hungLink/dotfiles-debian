@@ -36,13 +36,13 @@ set $volume-interface 	amixer set Master
 
 #### BUTTON COMBOS ####
 set $mod  		Mod4
-set $modA 		Mod4+Alt
+set $modA 		Mod4+Mod1
 set $modC 		Mod4+Control
 set $modS 		Mod4+Shift
-set $modAC 		Mod4+Alt+Control
-set $modAS 		Mod4+Alt+Shift
+set $modAC 		Mod4+Mod1+Control
+set $modAS 		Mod4+Mod1+Shift
 set $modCS 		Mod4+Control+Shift
-set $modACS 		Mod4+Alt+Control+Shift
+set $modACS 		Mod4+Mod1+Control+Shift
 
 ####  FUNCTION KEYS  ####
 # audio buttons
@@ -99,6 +99,7 @@ bindsym $mod+p 		exec $pass-man
 #~ s	- 
 #~ t	- Terminal
 bindsym $mod+t		exec $term
+bindsym $modA+t		exec $term
 #~ u	- 
 #~ v	- Video Player
 #~ w	- Web browser
@@ -109,16 +110,12 @@ bindsym $mod+w		exec firefox
 
 ##~~ SHIFT+SUPER (window management)
 #~ yuio	- Resize focused window by one unit
-
-
-
-
-#~ Add the following keys to modify the increment unit to the following:
-#~ ctl = 5, alt = 20, ctl+alt = 100
 bindsym $modS+y		resize shrink width $resizeSml
 bindsym $modS+u		resize shrink height $resizeSml
 bindsym $modS+i		resize grow height $resizeSml
 bindsym $modS+o		resize grow width $resizeSml
+#~ Add the following keys to modify the increment unit to the following:
+#~ ctl = 5, alt = 20, ctl+alt = 100
 #ctl
 bindsym $modCS+y	resize shrink width $resizeMed
 bindsym $modCS+u	resize shrink height $resizeMed
@@ -183,15 +180,36 @@ bindsym $modS+v		split v
 #~ x	- 
 #~ z	- 
 
-##~~ CTRL+SUPER (System commands)
+##~~ CONTROL+SUPER (System commands)
+#~ a	- 
+#~ b	- 
+#~ c	- 
+#~ d	- 
 #~ e 	- End i3 session (log out)
 bindsym $modC+e		exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+#~ f	- 
+#~ g	- 
+#~ h	- 
+#~ i	- 
+#~ j	- 
+#~ k	- 
 #~ l	- Lock screen
 bindsym $modC+l		exec "c=$(shuf ~/.personalPreferences/favoriteColors | head -1 | cut -f2); i3lock --color $c"
+#~ m	- 
+#~ n	- 
+#~ o	- 
+#~ p	- 
+#~ q	- 
 #~ r	- Reload the i3 configuration file.
 bindsym $modC+r		reload
 #~ R	- Restart i3.
 bindsym $modCS+r	restart
-
-
+#~ s	- 
+#~ t	- 
+#~ u	- 
+#~ v	- 
+#~ w	- 
+#~ x	- 
+#~ y	- 
+#~ z	- 
 
