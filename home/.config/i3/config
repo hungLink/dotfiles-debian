@@ -12,8 +12,6 @@ bar {
 }
 #focus/mouse options
 focus_follows_mouse no
-#map capsLock to control
-setxkbmap -option caps:ctrl_modifier
 
 #### CONFIG VARS ####
 set $resizeSml 	1 px or 1 ppt
