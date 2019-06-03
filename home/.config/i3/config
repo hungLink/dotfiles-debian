@@ -26,6 +26,7 @@ set $volLg 	20%
 set $displays 		arandr
 set $calculator 	qalculate
 set $file-man 		ranger
+set $help-script	i3help
 set $pass-man 		keepassx
 set $term 		gnome-terminal
 set $text-editor 	vim
@@ -82,7 +83,8 @@ bindsym $mod+e		exec $term -e $text-editor
 #~ f	- File manager (ranger)
 bindsym $mod+f		exec $term -e $file-man
 #~ g	- Games (Not yet written. Does nothing.)
-#~ h	- Help (Not yet written. Does nothing.)
+#~ h	- This very help script. How helpful!
+bindsym $mod+f		exec $help-script
 #~ i	- 
 #~ j	- 
 #~ k	- 
