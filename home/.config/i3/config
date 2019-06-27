@@ -1,5 +1,4 @@
 #!/bin/bash
-
 ####  GENERAL SETTINGS  ####
 #set mod to super key
 # Window title/bar font. Bar can be overridden.
@@ -53,6 +52,7 @@ bindsym Control+XF86AudioRaiseVolume	exec $volume $volSm+
 bindsym Control+XF86AudioLowerVolume	exec $volume $volSm-
 bindsym Shift+XF86AudioRaiseVolume	exec $volume $volLg+
 bindsym Shift+XF86AudioLowerVolume	exec $volume $volLg-
+bindsym XF86Launch1	exec $term
 
 ##~~ SUPER (launcher)
 #~ #	- Go to workspace #
@@ -84,7 +84,7 @@ bindsym $mod+e		exec $term -e $text-editor
 bindsym $mod+f		exec $term -e $file-man
 #~ g	- Games (Not yet written. Does nothing.)
 #~ h	- This very help script. How helpful!
-bindsym $mod+f		exec $help-script
+bindsym $mod+h		exec /opt/i3help
 #~ i	- 
 #~ j	- 
 #~ k	- 
@@ -190,7 +190,8 @@ bindsym $modC+e		exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. D
 #~ f	- 
 #~ g	- 
 #~ h	- 
-#~ i	- 
+#~ i	- reload/restart i3
+bindsym $modC+i		reload restart
 #~ j	- 
 #~ k	- 
 #~ l	- Lock screen
@@ -198,12 +199,11 @@ bindsym $modC+l		exec "c=$(shuf ~/.personalPreferences/favoriteColors | head -1 
 #~ m	- 
 #~ n	- 
 #~ o	- 
-#~ p	- 
+#~ p	- poweroff machine
+bindsym $modC+p		exec "sudo poweroff"
 #~ q	- 
-#~ r	- Reload the i3 configuration file.
-bindsym $modC+r		reload
-#~ R	- Restart i3.
-bindsym $modCS+r	restart
+#~ r	- reboot machine
+bindsym $modC+r		exec "sudo reboot"
 #~ s	- 
 #~ t	- 
 #~ u	- 
