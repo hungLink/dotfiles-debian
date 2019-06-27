@@ -1,5 +1,3 @@
-alias aliases="vim ~/.bash_aliases; source ~/.bashrc"
-
 # dir commands
 alias ..='cd ..; a'
 alias ..1='cd ..; a'
@@ -43,9 +41,9 @@ alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir
 alias shrug='echo ¯\\_\(ツ\)_/¯'
 alias overline='echo "‾"'
 
-#vim aliases
-alias valiases="vim ~/.bash_aliases"
-alias vvim="vim ~/.vimrc"
+#file shortcuts
+alias aliases="vim ~/.bash_aliases; source ~/.bashrc"
+alias i3config="vim ~/.config/i3/config"
 
 #littleDebian only
 alias spellbook="$HOME/Documents/pathfinder_2/Sahmi_Illimi/spellbook"
