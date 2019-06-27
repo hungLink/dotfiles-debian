@@ -1,12 +1,15 @@
-if [ -f ~/.bash_aliases ]; then
-	. ~/.bash_aliases;
-fi;
+declare -a includeFiles=(
+	"~/.bash_aliases"
+	"~/.bash_functions"
+	"~/.bash_paths"
+)
 
-if [ -f ~/.bash_functions ]; then
-	. ~/.bash_functions;
-fi;
+for i in "${includeFiles[@]}"
+do
+	if [ -f $i ]; then
+		echo $i
+		. $i;
+	fi;
+done
 
-if [ -f ~/.bash_paths ]; then
-	. ~/.bash_paths;
-fi;
 
