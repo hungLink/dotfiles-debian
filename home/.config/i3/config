@@ -110,37 +110,37 @@ bindsym $mod+w		exec firefox
 
 ##~~ SHIFT+SUPER (window management)
 #~ yuio	- Resize focused window by one unit
-bindsym $modS+y		resize shrink width $resizeSml
-bindsym $modS+u		resize shrink height $resizeSml
-bindsym $modS+i		resize grow height $resizeSml
-bindsym $modS+o		resize grow width $resizeSml
+bindsym $modS+u		resize shrink width $resizeSml
+bindsym $modS+i		resize shrink height $resizeSml
+bindsym $modS+o		resize grow height $resizeSml
+bindsym $modS+p		resize grow width $resizeSml
 #~ Add the following keys to modify the increment unit to the following:
-#~ ctl = 5, alt = 20, ctl+alt = 100
+#~ ctl=5, alt=20, ctl+alt=100
 #ctl
-bindsym $modCS+y	resize shrink width $resizeMed
-bindsym $modCS+u	resize shrink height $resizeMed
-bindsym $modCS+i	resize grow height $resizeMed
-bindsym $modCS+o	resize grow width $resizeMed
+bindsym $modCS+u	resize shrink width $resizeMed
+bindsym $modCS+i	resize shrink height $resizeMed
+bindsym $modCS+o	resize grow height $resizeMed
+bindsym $modCS+p	resize grow width $resizeMed
 #alt
-bindsym $modAS+y	resize shrink width $resizeLrg
-bindsym $modAS+u	resize shrink height $resizeLrg
-bindsym $modAS+i	resize grow height $resizeLrg
-bindsym $modAS+o	resize grow width $resizeLrg
+bindsym $modAS+u	resize shrink width $resizeLrg
+bindsym $modAS+i	resize shrink height $resizeLrg
+bindsym $modAS+o	resize grow height $resizeLrg
+bindsym $modAS+p	resize grow width $resizeLrg
 #clt+alt
-bindsym $modACS+y	resize shrink width $resizeXLg
-bindsym $modACS+u	resize shrink height $resizeXLg
-bindsym $modACS+i	resize grow height $resizeXLg
-bindsym $modACS+o	resize grow width $resizeXLg
-#~ hjkl - Move focus
-bindsym $modS+h		focus left
-bindsym $modS+j		focus down
-bindsym $modS+k		focus up
-bindsym $modS+l		focus right
-#~ nm,. - Move active window position
-bindsym $modS+n		move left
-bindsym $modS+m		move down
-bindsym $modS+comma	move up
-bindsym $modS+period	move right
+bindsym $modACS+u	resize shrink width $resizeXLg
+bindsym $modACS+i	resize shrink height $resizeXLg
+bindsym $modACS+o	resize grow height $resizeXLg
+bindsym $modACS+p	resize grow width $resizeXLg
+#~ jkl; - Move focus
+bindsym $modS+j		focus left
+bindsym $modS+k		focus down
+bindsym $modS+l		focus up
+bindsym $modS+semicolon	focus right
+#~ m,./ - Move active window position
+bindsym $modS+m		move left
+bindsym $modS+comma	move down
+bindsym $modS+period	move up
+bindsym $modS+slash	move right
 #~ #	- Move focused window to workspace #
 bindsym $modS+1		move container to workspace 1
 bindsym $modS+2		move container to workspace 2
@@ -152,14 +152,15 @@ bindsym $modS+7		move container to workspace 7
 bindsym $modS+8		move container to workspace 8
 bindsym $modS+9		move container to workspace 9
 bindsym $modS+0		move container to workspace 10
-# pc	- Toggle tiling / floating on active window
+#~ spc	- Toggle tiling / floating on active window
 bindsym $modS+space	floating toggle
 #~ -	- New windows open up to the right.
 bindsym $modS+minus	split v
 #~ |	- New windows open up downward.
 bindsym $modS+bar	split h
-#~ a		- 
-#~ b	- 
+#~ a	- 
+#~ b	- Change layout to split horizontal
+bindsym $modS+b		layout splith
 #~ c	- 
 #~ d	- 
 #~ e	- 
@@ -174,8 +175,8 @@ bindsym $modS+r		restart
 bindsym $modS+s		layout stacking
 #~ t	- Change layout to tabbed
 bindsym $modS+t		layout tabbed
-#~ v	- Change layout to Verticle Split (You can also use - and |)
-bindsym $modS+v		split v
+#~ v	- Change layout to split vertical
+bindsym $modS+v		layout splitv
 #~ w	- 
 #~ x	- 
 #~ z	- 
@@ -212,4 +213,3 @@ bindsym $modC+r		exec "sudo reboot"
 #~ x	- 
 #~ y	- 
 #~ z	- 
-

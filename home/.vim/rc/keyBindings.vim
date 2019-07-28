@@ -1,6 +1,12 @@
 "#######  CUSTOM KEY BINDINGS  ########
 " map space to leader
 map <space> \
+" map jkl;h to hjkl;
+noremap j h
+noremap k j
+noremap l k
+noremap ; l
+noremap h ;
 
 " #######################################
 " LEADER COMMANDS!
