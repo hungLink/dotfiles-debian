@@ -8,3 +8,5 @@ syntax on
 " Set number formats for incrementing letters and numbers
 set nrformats=alpha
 
+" Set word wrap
+set wrap linebreak
