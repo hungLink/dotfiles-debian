@@ -23,7 +23,7 @@ alias c="clear; clear"
 alias copy="xclip -sel clip"
 alias grep-history='history | grep'
 alias esed='sed -E'
-alias updade='sudo apt-get update; sudo apt-get upgrade'
+alias updade='sudo apt-get -y update; sudo apt-get -y upgrade'
 alias pss="pass show -c sudo; exit"
 
 # digital media server commands
