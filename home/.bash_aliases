@@ -27,7 +27,7 @@ alias updade='sudo apt-get -y update; sudo apt-get -y upgrade'
 alias pss="pass show -c sudo; exit"
 
 # digital media server commands
-alias startDigitalMediaServer='mediatomb -e eno1 -a /media/gunrugger/digital_media/video/ -a /media/gunrugger/digital_media/music/ -d'
+alias startDigitalMediaServer='mediatomb -e eno1 -a /media/gun/digital_media/video/ -a /media/gun/digital_media/music/ -d'
 alias stopDigitalMediaServer='pkill -INT mediatomb'
 
 # git commands
