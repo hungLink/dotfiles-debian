@@ -26,7 +26,7 @@ alias esed='sed -E'
 alias updade='sudo apt-get update; sudo apt-get upgrade'
 
 # digital media server commands
-alias startDigitalMediaServer='mediatomb -e eno1 -a /media/gunrugger/digital_media/video/ -a /media/gunrugger/digital_media/music/ -d'
+alias startDigitalMediaServer='mediatomb -e eno1 -a /media/gun/digital_media/video/ -a /media/gun/digital_media/music/ -d'
 alias stopDigitalMediaServer='pkill -INT mediatomb'
 
 # git commands
