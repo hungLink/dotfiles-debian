@@ -1,12 +1,17 @@
-if [ -f ~/.bash_aliases ]; then
-	. ~/.bash_aliases;
-fi;
+eval homedir="$(printf "~/%q" "$relativepath")"
+touch ~/.bash_machine_specific
+declare -a includeFiles=(
+	$homedir".bash_aliases"
+	$homedir".bash_functions"
+	$homedir".bash_paths"
+	$homedir".bash_machine_specific"
+)
 
-if [ -f ~/.bash_functions ]; then
-	. ~/.bash_functions;
-fi;
+for i in "${includeFiles[@]}"
+do
+	if [ -f $i ]; then
+		. $i;
+	fi;
+done
 
-if [ -f ~/.bash_paths ]; then
-	. ~/.bash_paths;
-fi;
 

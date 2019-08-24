@@ -1,5 +1,4 @@
 #!/bin/bash
-
 ####  GENERAL SETTINGS  ####
 #set mod to super key
 # Window title/bar font. Bar can be overridden.
@@ -26,6 +25,7 @@ set $volLg 	20%
 set $displays 		arandr
 set $calculator 	qalculate
 set $file-man 		ranger
+set $help-script	i3help
 set $pass-man 		keepassx
 set $term 		gnome-terminal
 set $text-editor 	vim
@@ -34,13 +34,13 @@ set $volume-interface 	amixer set Master
 
 #### BUTTON COMBOS ####
 set $mod  		Mod4
-set $modA 		Mod4+Alt
+set $modA 		Mod4+Mod1
 set $modC 		Mod4+Control
 set $modS 		Mod4+Shift
-set $modAC 		Mod4+Alt+Control
-set $modAS 		Mod4+Alt+Shift
+set $modAC 		Mod4+Mod1+Control
+set $modAS 		Mod4+Mod1+Shift
 set $modCS 		Mod4+Control+Shift
-set $modACS 		Mod4+Alt+Control+Shift
+set $modACS 		Mod4+Mod1+Control+Shift
 
 ####  FUNCTION KEYS  ####
 # audio buttons
@@ -52,6 +52,7 @@ bindsym Control+XF86AudioRaiseVolume	exec $volume $volSm+
 bindsym Control+XF86AudioLowerVolume	exec $volume $volSm-
 bindsym Shift+XF86AudioRaiseVolume	exec $volume $volLg+
 bindsym Shift+XF86AudioLowerVolume	exec $volume $volLg-
+bindsym XF86Launch1	exec $term
 
 ##~~ SUPER (launcher)
 #~ #	- Go to workspace #
@@ -82,7 +83,8 @@ bindsym $mod+e		exec $term -e $text-editor
 #~ f	- File manager (ranger)
 bindsym $mod+f		exec $term -e $file-man
 #~ g	- Games (Not yet written. Does nothing.)
-#~ h	- Help (Not yet written. Does nothing.)
+#~ h	- This very help script. How helpful!
+bindsym $mod+h		exec /opt/i3help
 #~ i	- 
 #~ j	- 
 #~ k	- 
@@ -97,6 +99,7 @@ bindsym $mod+p 		exec $pass-man
 #~ s	- 
 #~ t	- Terminal
 bindsym $mod+t		exec $term
+bindsym $modA+t		exec $term
 #~ u	- 
 #~ v	- Video Player
 #~ w	- Web browser
@@ -107,41 +110,37 @@ bindsym $mod+w		exec firefox
 
 ##~~ SHIFT+SUPER (window management)
 #~ yuio	- Resize focused window by one unit
-
-
-
-
+bindsym $modS+u		resize shrink width $resizeSml
+bindsym $modS+i		resize shrink height $resizeSml
+bindsym $modS+o		resize grow height $resizeSml
+bindsym $modS+p		resize grow width $resizeSml
 #~ Add the following keys to modify the increment unit to the following:
-#~ ctl = 5, alt = 20, ctl+alt = 100
-bindsym $modS+y		resize shrink width $resizeSml
-bindsym $modS+u		resize shrink height $resizeSml
-bindsym $modS+i		resize grow height $resizeSml
-bindsym $modS+o		resize grow width $resizeSml
+#~ ctl=5, alt=20, ctl+alt=100
 #ctl
-bindsym $modCS+y	resize shrink width $resizeMed
-bindsym $modCS+u	resize shrink height $resizeMed
-bindsym $modCS+i	resize grow height $resizeMed
-bindsym $modCS+o	resize grow width $resizeMed
+bindsym $modCS+u	resize shrink width $resizeMed
+bindsym $modCS+i	resize shrink height $resizeMed
+bindsym $modCS+o	resize grow height $resizeMed
+bindsym $modCS+p	resize grow width $resizeMed
 #alt
-bindsym $modAS+y	resize shrink width $resizeLrg
-bindsym $modAS+u	resize shrink height $resizeLrg
-bindsym $modAS+i	resize grow height $resizeLrg
-bindsym $modAS+o	resize grow width $resizeLrg
+bindsym $modAS+u	resize shrink width $resizeLrg
+bindsym $modAS+i	resize shrink height $resizeLrg
+bindsym $modAS+o	resize grow height $resizeLrg
+bindsym $modAS+p	resize grow width $resizeLrg
 #clt+alt
-bindsym $modACS+y	resize shrink width $resizeXLg
-bindsym $modACS+u	resize shrink height $resizeXLg
-bindsym $modACS+i	resize grow height $resizeXLg
-bindsym $modACS+o	resize grow width $resizeXLg
-#~ hjkl - Move focus
-bindsym $modS+h		focus left
-bindsym $modS+j		focus down
-bindsym $modS+k		focus up
-bindsym $modS+l		focus right
-#~ nm,. - Move active window position
-bindsym $modS+n		move left
-bindsym $modS+m		move down
-bindsym $modS+comma	move up
-bindsym $modS+period	move right
+bindsym $modACS+u	resize shrink width $resizeXLg
+bindsym $modACS+i	resize shrink height $resizeXLg
+bindsym $modACS+o	resize grow height $resizeXLg
+bindsym $modACS+p	resize grow width $resizeXLg
+#~ jkl; - Move focus
+bindsym $modS+j		focus left
+bindsym $modS+k		focus down
+bindsym $modS+l		focus up
+bindsym $modS+semicolon	focus right
+#~ m,./ - Move active window position
+bindsym $modS+m		move left
+bindsym $modS+comma	move down
+bindsym $modS+period	move up
+bindsym $modS+slash	move right
 #~ #	- Move focused window to workspace #
 bindsym $modS+1		move container to workspace 1
 bindsym $modS+2		move container to workspace 2
@@ -153,14 +152,15 @@ bindsym $modS+7		move container to workspace 7
 bindsym $modS+8		move container to workspace 8
 bindsym $modS+9		move container to workspace 9
 bindsym $modS+0		move container to workspace 10
-# pc	- Toggle tiling / floating on active window
+#~ spc	- Toggle tiling / floating on active window
 bindsym $modS+space	floating toggle
 #~ -	- New windows open up to the right.
 bindsym $modS+minus	split v
 #~ |	- New windows open up downward.
 bindsym $modS+bar	split h
-#~ a		- 
-#~ b	- 
+#~ a	- 
+#~ b	- Change layout to split horizontal
+bindsym $modS+b		layout splith
 #~ c	- 
 #~ d	- 
 #~ e	- 
@@ -175,21 +175,41 @@ bindsym $modS+r		restart
 bindsym $modS+s		layout stacking
 #~ t	- Change layout to tabbed
 bindsym $modS+t		layout tabbed
-#~ v	- Change layout to Verticle Split (You can also use - and |)
-bindsym $modS+v		split v
+#~ v	- Change layout to split vertical
+bindsym $modS+v		layout splitv
 #~ w	- 
 #~ x	- 
 #~ z	- 
 
-##~~ CTRL+SUPER (System commands)
+##~~ CONTROL+SUPER (System commands)
+#~ a	- 
+#~ b	- 
+#~ c	- 
+#~ d	- 
 #~ e 	- End i3 session (log out)
 bindsym $modC+e		exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+#~ f	- 
+#~ g	- 
+#~ h	- 
+#~ i	- reload/restart i3
+bindsym $modC+i		reload restart
+#~ j	- 
+#~ k	- 
 #~ l	- Lock screen
 bindsym $modC+l		exec "c=$(shuf ~/.personalPreferences/favoriteColors | head -1 | cut -f2); i3lock --color $c"
-#~ r	- Reload the i3 configuration file.
-bindsym $modC+r		reload
-#~ R	- Restart i3.
-bindsym $modCS+r	restart
-
-
-
+#~ m	- 
+#~ n	- 
+#~ o	- 
+#~ p	- poweroff machine
+bindsym $modC+p		exec "sudo poweroff"
+#~ q	- 
+#~ r	- reboot machine
+bindsym $modC+r		exec "sudo reboot"
+#~ s	- 
+#~ t	- 
+#~ u	- 
+#~ v	- 
+#~ w	- 
+#~ x	- 
+#~ y	- 
+#~ z	- 

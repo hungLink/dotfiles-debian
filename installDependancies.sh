@@ -1,6 +1,6 @@
 #!/bin/bash
+packages = build-essential cmake djmount gimp htop i3-wm pass python3-dev ranger secure-delete tmux vim vim-gtk zathura
 echo "Going super saiyan. I won't let you get away with this."
-sudo apt install -y vim vim-gtk ranger i3-wm zathura pass gimp
-sudo apt install -y build-essential cmake python3-dev
+sudo apt install -y $packages
 python3 ~/.vim/bundle/YouCompleteMe/install.py --all --clang-completer
 vim +PluginInstall +qall

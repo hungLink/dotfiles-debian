@@ -19,11 +19,12 @@ alias l="ls -lAh"
 alias la="ls -lA"
 alias c="clear; clear"
 
-#coreutil commands
+#Command Shorthand
 alias copy="xclip -sel clip"
 alias grep-history='history | grep'
 alias esed='sed -E'
-alias updade='sudo apt-get update; sudo apt-get upgrade'
+alias updade='sudo apt-get -y update; sudo apt-get -y upgrade'
+alias pss="pass show -c sudo; exit"
 
 # digital media server commands
 alias startDigitalMediaServer='mediatomb -e eno1 -a /media/gun/digital_media/video/ -a /media/gun/digital_media/music/ -d'
@@ -40,9 +41,9 @@ alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir
 alias shrug='echo ¯\\_\(ツ\)_/¯'
 alias overline='echo "‾"'
 
-#vim aliases
-alias valiases="vim ~/.bash_aliases"
-alias vvim="vim ~/.vimrc"
+#file shortcuts
+alias aliases="vim ~/.bash_aliases; source ~/.bashrc"
+alias i3config="vim ~/.config/i3/config"
 
 #littleDebian only
 alias spellbook="$HOME/Documents/pathfinder_2/Sahmi_Illimi/spellbook"
