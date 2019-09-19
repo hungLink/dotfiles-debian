@@ -1,0 +1,21 @@
+#!/usr/bin/python3
+from random import randint
+
+def rolld6():
+ return randint(1, 6)
+
+def roll4d6DropLowest():
+	lowestRoll = 6
+	total = 0
+	rolls = []
+	for var in list(range(4)):
+		roll = rolld6()
+		total += roll
+		rolls.append(roll)
+		if roll<lowestRoll:
+			lowestRoll = roll
+	print (str(rolls) + " - " + str(total - lowestRoll))
+	return total-lowestRoll
+	
+for var in list(range(6)):
+	roll4d6DropLowest()
