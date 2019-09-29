@@ -10,7 +10,7 @@ bar {
 	font pango:monospace 10
 }
 #focus/mouse options
-focus_follows_mouse no
+focus_follows_mouse yes
 
 #### CONFIG VARS ####
 set $resizeSml 	1 px or 1 ppt
