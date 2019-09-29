@@ -18,6 +18,7 @@ alias a="ls -A"
 alias l="ls -lAh"
 alias la="ls -lA"
 alias c="clear; clear"
+alias ils="kitty +kitten icat"
 
 #Command Shorthand
 alias copy="xclip -sel clip"
