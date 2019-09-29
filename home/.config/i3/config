@@ -27,7 +27,7 @@ set $calculator 	qalculate
 set $file-man 		ranger
 set $help-script	i3help
 set $pass-man 		keepassx
-set $term 		gnome-terminal
+set $term 		kitty
 set $text-editor 	vim
 set $volume 		amixer set Master 
 set $volume-interface 	amixer set Master 
