@@ -1,5 +1,5 @@
 #!/bin/bash
-packagesString="xorg kitty wget build-essential cmake djmount gimp htop i3-wm i3-lock bash- completion pass python3-dev ranger secure-delete tmux vim vim-gtk zathura python3-tk"
+packagesString="xorg kitty wget build-essential cmake djmount gimp htop i3-wm i3lock i3status bash- completion pass python3-dev ranger secure-delete tmux vim vim-gtk zathura python3-tk"
 packagesArray=(${packagesString})
 
 echo "Going super saiyan. I won't let you get away with this."
