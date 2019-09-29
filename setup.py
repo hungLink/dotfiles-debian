@@ -37,6 +37,11 @@ def yesOrNo():
 		sys.stdout.write("Please respond with 'yes' or 'no'")
 
 ####  MAIN LOOP  ####
+## Install all the stuf if the user wants to.
+print(dependanciesMessage)
+if yesOrNo():
+	subprocess.call(dependanciesFile)
+
 ## Make sure all the files in the repo are properly linked to the config files in the system.
 for path, dirs, files in os.walk(os.path.relpath("./home")):
     # For each dir
@@ -79,7 +84,4 @@ if not appendToBashRC in open(bashRcFile).read():
     with open(bashRcFile, "a") as file:
         file.write(appendToBashRC)
 
-print(dependanciesMessage)
-if yesOrNo():
-	subprocess.call(dependanciesFile)
 

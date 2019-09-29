@@ -1,5 +1,3 @@
-#!/bin/bash
-####  GENERAL SETTINGS  ####
 #set mod to super key
 # Window title/bar font. Bar can be overridden.
 font pango:monospace 10
@@ -10,7 +8,7 @@ bar {
 	font pango:monospace 10
 }
 #focus/mouse options
-focus_follows_mouse no
+focus_follows_mouse yes
 
 #### CONFIG VARS ####
 set $resizeSml 	1 px or 1 ppt
@@ -52,7 +50,7 @@ bindsym Control+XF86AudioRaiseVolume	exec $volume $volSm+
 bindsym Control+XF86AudioLowerVolume	exec $volume $volSm-
 bindsym Shift+XF86AudioRaiseVolume	exec $volume $volLg+
 bindsym Shift+XF86AudioLowerVolume	exec $volume $volLg-
-bindsym XF86Launch1	exec $term
+bindsym XF86Launch1	exec kitty
 
 ##~~ SUPER (launcher)
 #~ #	- Go to workspace #
