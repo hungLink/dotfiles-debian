@@ -25,7 +25,7 @@ set $calculator 	qalculate
 set $file-man 		ranger
 set $help-script	i3help
 set $pass-man 		keepassx
-set $term 		kitty
+set $term 		urxvt
 set $text-editor 	vim
 set $volume 		amixer set Master 
 set $volume-interface 	amixer set Master 
@@ -65,7 +65,7 @@ bindsym $mod+8		workspace 8
 bindsym $mod+9		workspace 9
 bindsym $mod+0		workspace 10
 #~ spc	- System search (program name)
-bindsym $mod+space	exec dmenu_run
+#this is set at the bottom of the file in the pywal config
 #~ -	- New windows open up to the right.
 bindsym $mod+minus	split v
 #~ |	- New windows open up downward.
@@ -211,3 +211,24 @@ bindsym $modC+r		exec "sudo reboot"
 #~ x	- 
 #~ y	- 
 #~ z	- 
+
+###### PYWAL CONFIG ######
+# Set colors from Xresources
+# Change 'color7' and 'color2' to whatever colors you want i3 to use 
+# from the generated scheme.
+# NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
+# it fails to get colors from Xresources.
+set_from_resource $fg i3wm.color7 #f0f0f0
+set_from_resource $bg i3wm.color2 #f0f0f0
+
+# class                 border  backgr. text indicator child_border
+client.focused          $bg     $bg     $fg  $bg       $bg
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
+
+client.background       $bg
+
+# PROTIP: You can also dynamically set dmenu's colors this way:
+bindsym $mod+space exec dmenu_run -nb "$fg" -nf "$bg" -sb "$bg" -sf "$fg"
