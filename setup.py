@@ -10,8 +10,11 @@ sysHomeDir = os.path.expanduser("~")
 dependanciesFile = "./installDependancies.sh"
 
 dependanciesMessage = "Would you like to install your favorite packages and so a bunch of automated setup like a winner?"
-appendToBashRC="if [ -f ~/.bash_include ]; then . ~/.bash_include; fi;"
+appendCommonToBashrc="F=~/.config/commonSh/*; for f in $F; do source $f; done"
+appendConfigToBashrc="F=~/.config/bash/*; for f in $F; do source $f; done"
+
 bashRcFile = sysHomeDir + "/.bashrc"
+zshrcFile = sysHomeDir + "/.zshrc"
 
 ####  FUNCTIONS  ####
 def repoPathToSysPath(repoDir):
@@ -78,10 +81,13 @@ for path, dirs, files in os.walk(os.path.relpath("./home")):
         os.rename(sysFile, sysFile+backupFileExt)
         makeLink(repoFile, sysFile)
 
-## Make sure that the .bash_include file gets run at the end of .bashrc
-# If the magic string bashRcFile is not in the file, append it.
-if not appendToBashRC in open(bashRcFile).read():
-    with open(bashRcFile, "a") as file:
-        file.write(appendToBashRC)
 
+#######MAKE SURE CONFIG FILES GET RUN (I know this is not elegant, but look at me not caring)#######
+if not appendCommonToBashrc in open(bashRcFile).read():
+    with open(bashRcFile, "a") as file:
+        file.write(appendCommonToBashrc + "\n")
+## .bashrc - bash config 
+if not appendConfigToBashrc in open(bashRcFile).read():
+    with open(bashRcFile, "a") as file:
+        file.write(appendConfigToBashrc + "\n")
 
