@@ -1,0 +1,4 @@
+#!/bin/bash
+wallpaperDir="${HOME}/.config/wallpapers/"
+wallpaperFileName="$(ls $wallpaperDir | shuf -n 1)"
+eval wal -i $wallpaperDir$wallpaperFileName

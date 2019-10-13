@@ -1,5 +1,0 @@
-#!/bin/bash
-wallpaperDir="~/.config/wallpapers/"
-wallpaperFileName="$(eval ls $wallpaperDir | sort -R | head -1)"
-echo $wallpaperDir$wallpaperFileName
-eval wal -i $wallpaperDir$wallpaperFileName
