@@ -1,19 +1,34 @@
-#set mod to super key
+#### SKIN ####
+# pywal config
+# Set colors from Xresources. NOTE: second color is a fallback
+set_from_resource $fbg i3wm.color2 #f0f0f0
+set_from_resource $ffg i3wm.color4 #f0f0f0
+set_from_resource $ubg i3wm.color5 #f0f0f0
+set_from_resource $ufg i3wm.color7 #f0f0f0
+
+# class                 border  backgr. text indicator child_border
+client.focused          $fbg	$fbg	$ffg	$fbg	$fbg
+client.focused_inactive $fbg	$fbg	$ffg	$fbg	$fbg
+client.unfocused        $ubg	$ubg	$ufg	$ubg	$ubg
+client.urgent           $fbg	$fbg	$ffg	$fbg	$fbg
+client.placeholder      $fbg	$fbg	$ffg	$fbg	$fbg
+client.background       $fbg
+
 # Window title/bar font. Bar can be overridden.
 font pango:monospace 10
+default_border pixel
+default_floating_border pixel
+
+#### MISC ####
+#focus/mouse options
+focus_follows_mouse yes
+#status bar settings
 bar {
 	#hidden bar shows on mod keypress
 	mode hide
         status_command i3status 
 	font pango:monospace 10
 }
-#focus/mouse options
-focus_follows_mouse yes
-
-#gaps
-#gaps inner 5
-
-new_window pixel
 
 #### CONFIG VARS ####
 set $resizeSml 	1 px or 1 ppt
@@ -36,6 +51,7 @@ set $volume 		amixer set Master
 set $volume-interface 	amixer set Master 
 
 #### BUTTON COMBOS ####
+#mod is super key
 set $mod  		Mod4
 set $modA 		Mod4+Mod1
 set $modC 		Mod4+Control
@@ -55,7 +71,6 @@ bindsym Control+XF86AudioRaiseVolume	exec $volume $volSm+
 bindsym Control+XF86AudioLowerVolume	exec $volume $volSm-
 bindsym Shift+XF86AudioRaiseVolume	exec $volume $volLg+
 bindsym Shift+XF86AudioLowerVolume	exec $volume $volLg-
-bindsym XF86Launch1	exec kitty
 
 ##~~ SUPER (launcher)
 #~ #	- Go to workspace #
@@ -70,7 +85,7 @@ bindsym $mod+8		workspace 8
 bindsym $mod+9		workspace 9
 bindsym $mod+0		workspace 10
 #~ spc	- System search (program name)
-#this is set at the bottom of the file in the pywal config
+bindsym $mod+space exec dmenu_run -nb "$ffg" -nf "$fbg" -sb "$fbg" -sf "$ffg"
 #~ -	- New windows open up to the right.
 bindsym $mod+minus	split v
 #~ |	- New windows open up downward.
@@ -162,8 +177,8 @@ bindsym $modS+minus	split v
 #~ |	- New windows open up downward.
 bindsym $modS+bar	split h
 #~ a	- 
-#~ b	- Change layout to split horizontal
-bindsym $modS+b		layout splith
+#~ b	- Change layout to split horizontal (disabled)
+#bindsym $modS+b		layout splith
 #~ c	- 
 #~ d	- 
 #~ e	- 
@@ -174,12 +189,12 @@ bindsym $modS+b		layout splith
 bindsym $modS+q		kill
 #~ r	- Refresh i3config
 bindsym $modS+r		restart
-#~ s	- Change layout to stacking
-bindsym $modS+s		layout stacking
-#~ t	- Change layout to tabbed
-bindsym $modS+t		layout tabbed
-#~ v	- Change layout to split vertical
-bindsym $modS+v		layout splitv
+#~ s	- Change layout to stacking (disabled)
+#bindsym $modS+s		layout stacking
+#~ t	- Change layout to tabbed (disabled)
+#bindsym $modS+t		layout tabbed
+#~ v	- Change layout to split vertical (disabled)
+#bindsym $modS+v		layout splitv
 #~ w	- 
 #~ x	- 
 #~ z	- 
@@ -216,25 +231,3 @@ bindsym $modC+r		exec "sudo reboot"
 #~ x	- 
 #~ y	- 
 #~ z	- 
-
-###### PYWAL CONFIG ######
-# Set colors from Xresources
-# Change 'color7' and 'color2' to whatever colors you want i3 to use 
-# from the generated scheme.
-# NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
-# it fails to get colors from Xresources.
-set_from_resource $ffg i3wm.color7 #f0f0f0
-set_from_resource $fbg i3wm.color2 #f0f0f0
-set_from_resource $ufg i3wm.color2 #f0f0f0
-set_from_resource $ubg i3wm.color7 #f0f0f0
-
-# class                 border  backgr. text indicator child_border
-client.focused          $fbg	$fbg	$ffg	$fbg	$fbg
-client.focused_inactive $fbg	$fbg	$ffg	$fbg	$fbg
-client.unfocused        $ubg	$ubg	$ufg	$ubg	$ubg
-client.urgent           $fbg	$fbg	$ffg	$fbg	$fbg
-client.placeholder      $fbg	$fbg	$ffg	$fbg	$fbg
-
-client.background       $fbg
-
-bindsym $mod+space exec dmenu_run -nb "$ffg" -nf "$fbg" -sb "$fbg" -sf "$ffg"
