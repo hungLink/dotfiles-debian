@@ -44,7 +44,6 @@ set $displays 		arandr
 set $calculator 	qalculate
 set $file-man 		ranger
 set $help-script	i3help
-set $pass-man 		keepassx
 set $term 		urxvt
 set $text-editor 	vim
 set $volume 		amixer set Master 
@@ -110,8 +109,7 @@ bindsym $mod+h		exec /opt/i3help
 #~ m	- Music
 #~ n	- 
 #~ o	- 
-#~ p	- Password Manager
-bindsym $mod+p 		exec $pass-man
+#~ p	-
 #~ q	- 
 #~ r	- 
 #~ s	- 
