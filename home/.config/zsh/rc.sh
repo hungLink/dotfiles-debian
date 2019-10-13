@@ -29,5 +29,7 @@ export KEYTIMEOUT=1
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^E' edit-command-line
 
+# ctrl-o to open ranger here and cd to the exit dir
+bindkey -s '^o' 'rangercd\n'
 
 

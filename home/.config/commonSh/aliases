@@ -30,7 +30,7 @@ alias gitUncommit='git reset --soft HEAD^'
 alias gitStage='git stage * */.*'
 
 # ranger alias
-alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+alias rangercd='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 
 # strings
 alias shrug='echo ¯\\_\(ツ\)_/¯'
