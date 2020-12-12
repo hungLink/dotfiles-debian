@@ -4,4 +4,4 @@ wallpaperDir="${HOME}/.config/wallpapers/"
 #generate seed based on date
 date | cut -f1,2,3,4 -d' ' | sha512sum > "$dateFile"
 wallpaperFileName="$(eval ls $wallpaperDir | shuf --random-source=$dateFile | head -1)"
-eval wal -i $wallpaperDir$wallpaperFileName
+eval /usr/local/bin/wal -i $wallpaperDir$wallpaperFileName
