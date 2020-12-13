@@ -4,6 +4,8 @@ default_border pixel
 default_floating_border pixel
 
 #### MISC ####
+# window transparency
+exec_always --no-startup-id compton --config /home/gun/.config/compton.conf
 #focus/mouse options
 focus_follows_mouse yes
 #status bar settings
@@ -171,7 +173,6 @@ bindsym $modS+f		fullscreen toggle
 #~ g	- 
 #~ p	- 
 #~ q	- Kill active window
-bindsym $modS+q		kill
 #~ r	- Refresh i3config
 bindsym $modS+r		restart
 #~ s	- Change layout to stacking (disabled)
@@ -180,7 +181,8 @@ bindsym $modS+r		restart
 #bindsym $modS+t		layout tabbed
 #~ v	- Change layout to split vertical (disabled)
 #bindsym $modS+v		layout splitv
-#~ w	- 
+#~ w	- Kill active window
+bindsym $modS+w		kill
 #~ x	- 
 #~ z	- 
 
