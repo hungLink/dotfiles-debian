@@ -12,11 +12,24 @@ def terminal_urxvt():
 			#remove trailing \n from line
 			outputLine = outputLine.rstrip()
 			print(outputLine)	
+def browser_qutebrowser():
+	configFile = open('/home/gun/.config/qutebrowser/config.py', 'r')
+	for line in configFile:
+		if '#~' in line:
+			#remove '#~' from beginning of line
+			outputLine = line[2:]
+			#remove trailing \n from line
+			outputLine = outputLine.rstrip()
+			print(outputLine)	
 def i3():
 	print("Please refer to the i3 config file located at ~/.config/i3/config\nAlternatively, you can enter super+h if the i3help script is installed correctly. The help script should probably be replaced and called in this script someday, somehow. I'm gonna make it alright but not right now.")
 
 # Define options
-optionsDict = {"terminal_urxvt":terminal_urxvt, "i3":i3}
+optionsDict = {
+	"i3":i3,
+	"browser_qutebrowser": browser_qutebrowser,
+	"terminal_urxvt":terminal_urxvt,
+}
 optionsList = list(optionsDict.keys())
 
 #set up the completer

@@ -26,6 +26,7 @@ set $volMd 	5%
 set $volLg 	20%
 
 #### PROGRAMS ####
+set $browser 		qutebrowser
 set $displays 		arandr
 set $calculator 	qalculate
 set $file-man 		ranger
@@ -106,7 +107,7 @@ bindsym $modA+t		exec $term
 #~ u	- 
 #~ v	- Video Player
 #~ w	- Web browser
-bindsym $mod+w		exec firefox
+bindsym $mod+w		exec $browser
 #~ x	- 
 #~ y	- 
 #~ z	- 
