@@ -1,0 +1,11 @@
+---
+sources:
+  inscloudgate:
+    region: us-east-1
+    url: s3://cloudgate-configs/inscloudgate.tgz
+  inseng:
+    region: us-east-1
+    url: s3://cloudgate-configs/inseng.tgz
+  insproserv:
+    region: us-east-1
+    url: s3://cloudgate-configs/insproserv.tgz
