@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 from random import randint
+import sys
+
+mode = sys.argv[1].lower()
 
 def rolld6():
  return randint(1, 6)
@@ -16,6 +19,19 @@ def roll4d6DropLowest():
 			lowestRoll = roll
 	print (str(rolls) + " - " + str(total - lowestRoll))
 	return total-lowestRoll
+
+def roll3d6():
+	total = 0
+	rolls = []
+	for var in list(range(3)):
+		roll = rolld6()
+		total += roll
+		rolls.append(roll)
+	print (str(rolls) + " - " + str(total))
+	return total
 	
 for var in list(range(6)):
+	if mode == "ascromintended":
+		roll3d6();
+		continue;
 	roll4d6DropLowest()
