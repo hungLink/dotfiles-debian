@@ -10,3 +10,5 @@ set nrformats=alpha
 
 " Set word wrap
 set wrap linebreak
+
+set noexpandtab

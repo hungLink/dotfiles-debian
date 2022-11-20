@@ -231,7 +231,6 @@ function! SuperTabLongestHighlight(dir) " {{{
   if !pumvisible()
     return ''
   endif
-  return a:dir == -1 ? "\<up>" : "\<down>"
 endfunction " }}}
 
 function! s:Init() " {{{
