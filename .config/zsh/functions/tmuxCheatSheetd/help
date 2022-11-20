@@ -1,8 +1,0 @@
-TMUX LIST-KEYS
-list-keys
-
-LIST KEY BINDINGS(SHORTCUTS)
-Ctrl + b ?
-
-SHOW EVERY SESSION, WINDOW, PANE, ETC...
-tmux info
