@@ -6,6 +6,8 @@ if status is-interactive
     fish $HOME/.config/fish/aliases.fish > /dev/null
     rm $HOME/.config/fish/aliases.*
     #### -- END ALIAS IMPORT-- ####
+
+    set -gx EDITOR nvim
     
     # initialize rbenv
     source (rbenv init - | psub)
