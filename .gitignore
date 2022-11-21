@@ -1,10 +1,10 @@
 # Ignore everthing except for specific dirs
-/*			#ignore everything
-/.*			#including the .dotfiles
-!/.config		#  except for .config
-/.config/*		#ignore everything in .config
-!.config/setup.py	#  Except for the setup script
-!.config/coc		#  and coc
-!.config/fish		#  ... and fish
-!.config/nvim		#  and also nvim
-!.config/wallpapers	#  ... oh yeah, and the wallpapers
+/*
+/.*
+!/.config
+/.config/*
+!.config/setup.py
+!.config/coc
+!.config/fish
+!.config/nvim
+!.config/wallpapers
