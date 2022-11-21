@@ -1,7 +1,7 @@
 # Ignore everthing except for specific dirs
-/*			#ignore all everything in the root
+/*			#ignore everything
+/.*			#including the .dotfiles
 !/.config		#  except for .config
-
 /.config/*		#ignore everything in .config
 !.config/setup.py	#  Except for the setup script
 !.config/coc		#  and coc
