@@ -5,6 +5,7 @@ import filecmp, os, subprocess, sys
 #### CONFIG ####
 packageNames = [
     "gimp",
+    "fish"
     "htop",
     "neovim",
     "pass",
