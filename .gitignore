@@ -1,10 +1,11 @@
-# Ignore everthing except for specific dirs
+# See README.md
 /*
 /.*
+!/README.md
 !/.config
 /.config/*
-!.config/setup.py
-!.config/coc
-!.config/fish
-!.config/nvim
-!.config/wallpapers
+!/.config/setup.py
+!/.config/coc
+!/.config/fish
+!/.config/nvim
+!/.config/wallpapers
