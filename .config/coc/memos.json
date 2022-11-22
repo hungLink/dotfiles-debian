@@ -149,6 +149,29 @@
         "sysPrefix": "/usr",
         "fileHash": "d663beee5ff4f7ffd4ae1831fdc15acaa4a6fb26e9907cc15ebebc65edd69d19f1083b36607cf06dd17d558138be6a6fd9b14df9d2d8327fb4794096f54824e1",
         "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/usr/bin/python3.9",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.9.10-final",
+          "major": 3,
+          "minor": 9,
+          "patch": 10,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.9.10-final"
+        },
+        "sysPrefix": "/usr",
+        "fileHash": "855329c91557db8dfd50aa2d3687871360bca82ee401d802f80def3f019fc04bfd886f775f8845115369750511fe3981dff0f7a4aad10b42f9f60fe6d933179a",
+        "type": "Unknown"
       }
     ],
     "/usr/local/opt/python@3.10/bin/python3.10.interpreter.Details.v7": {
@@ -1110,7 +1133,8 @@
       },
       "sysPrefix": "/usr",
       "fileHash": "5935ccc146deb38e8748fad4dc5ff225c6de7d826ccbc8269c591ba1da1bcc57c05fd01f24ad084fe9089034c384644e60c543efabbc4203974f5dbe32f4dac4",
-      "type": "Unknown"
+      "type": "Unknown",
+      "cachedEntry": true
     },
     "InterpreterAutoSeletionRule-system": {
       "architecture": 3,
@@ -1134,6 +1158,7 @@
       "sysPrefix": "/usr",
       "fileHash": "5935ccc146deb38e8748fad4dc5ff225c6de7d826ccbc8269c591ba1da1bcc57c05fd01f24ad084fe9089034c384644e60c543efabbc4203974f5dbe32f4dac4",
       "type": "Unknown",
+      "cachedEntry": true,
       "displayName": "Python 3.10.6 64-bit"
     },
     "InterpreterAutoSeletionRule-cachedInterpreters": {
@@ -1158,6 +1183,7 @@
       "sysPrefix": "/usr",
       "fileHash": "5935ccc146deb38e8748fad4dc5ff225c6de7d826ccbc8269c591ba1da1bcc57c05fd01f24ad084fe9089034c384644e60c543efabbc4203974f5dbe32f4dac4",
       "type": "Unknown",
+      "cachedEntry": true,
       "displayName": "Python 3.10.6 64-bit"
     },
     "preferredGlobalPyInterpreter": {
