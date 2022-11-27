@@ -28,13 +28,17 @@
     {
       "pattern": "https?://configure.zsa.io/*",
       "passKeys": ""
+    },
+    {
+      "pattern": "https?://www.livechat.com/*",
+      "passKeys": ""
     }
   ],
   "filterLinkHints": false,
   "waitForEnterForFilteredHints": true,
   "hideHud": false,
-  "keyMappings": "mapkey m h\nmapkey , j\nmapkey . k\nmapkey / l\n\nmapkey h /\nmapkey j m\nmapkey k .\nmapkey l ,\n\nmap gf LinkHints.activateModeWithQueue\nmap gt duplicateTab\nmap gp togglePinTab\nmap gm toggleMuteTab\nmap : goForward\nmap J goBack\nmap t Vomnibar.activateTabSelection\n\nunmap L\nunmap K\nunmap yt\nunmap gT\nunmap ^\nunmap g0\nunmap g$\nunmap <c-e>\nunmap <c-y>\nunmap zH\nunmap zL\nunmap gf\nunmap gF\nunmap T\nunmap <a-f>",
-  "linkHintCharacters": "sadfjklewcmpgh",
+  "keyMappings": "mapkey m h\nmapkey , j\nmapkey . k\nmapkey / l\n\nmapkey h /\nmapkey j m\nmapkey k .\nmapkey l ,\n\nmap gf LinkHints.activateModeWithQueue\nmap gt duplicateTab\nmap gp togglePinTab\nmap gm toggleMuteTab\nmap ? goForward\nmap M goBack\nmap H showHelp\nmap t Vomnibar.activateTabSelection\n\nunmap L\nunmap K\nunmap yt\nunmap gT\nunmap ^\nunmap g0\nunmap g$\nunmap <c-e>\nunmap <c-y>\nunmap zH\nunmap zL\nunmap gf\nunmap gF\nunmap T\nunmap <a-f>",
+  "linkHintCharacters": "!#%&()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz[]^{}~",
   "linkHintNumbers": "0123456789",
   "newTabUrl": "about:newtab",
   "nextPatterns": "next,more,newer,>,›,→,»,≫,>>",
