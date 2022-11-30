@@ -84,11 +84,6 @@ _G.packer_plugins = {
     path = "/home/albertlopez/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
-  ["nvim-peekup"] = {
-    loaded = true,
-    path = "/home/albertlopez/.local/share/nvim/site/pack/packer/start/nvim-peekup",
-    url = "https://github.com/gennaro-tedesco/nvim-peekup"
-  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/albertlopez/.local/share/nvim/site/pack/packer/start/packer.nvim",

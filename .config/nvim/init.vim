@@ -4,8 +4,9 @@ let &packpath = &runtimepath
 source ~/.vimrc
 
 
-lua require('plugins') " Packer.nvim plugin dir
-lua require('init') " lua init file we will eventually migrate to
+lua require('plugins')
+lua require('init')
+lua require('nvim-lspconfig')
 
 " specify binary locations
 let g:python_host_prog = '/usr/bin/python2'

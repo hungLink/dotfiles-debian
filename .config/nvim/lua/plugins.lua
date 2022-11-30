@@ -17,5 +17,4 @@ return require('packer').startup(function(use)
   use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP (need for godot)
   use { 'neoclide/coc.nvim', branch = "release" } -- Nvim LSP for anything but godot.
   use 'habamax/vim-godot' --various godot functions
-  use 'gennaro-tedesco/nvim-peekup' -- better registers
 end)
