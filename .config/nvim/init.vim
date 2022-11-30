@@ -21,3 +21,19 @@ augroup packer_user_config
   autocmd BufWritePost plugins.lua source <afile> | PackerCompile
 augroup end
 
+noremap m h
+noremap , j
+noremap . k
+noremap / l
+
+noremap h /
+noremap j m
+noremap k .
+noremap l ,
+
+lua require('init')
+inoremap <expr> <CR> complete_info().selected != -1 ?
+            \ &filetype == "gdscript" ? (coc#expandable() ?  "\<C-y>" : "\<C-y><Esc>a") : "\<C-y>"
+
+            \ : "\<C-g>u\<CR>"
+

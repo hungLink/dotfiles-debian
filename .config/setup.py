@@ -20,6 +20,7 @@ aptPackageNames = [
     "python-pip",
     "rbenv",
     "secure-delete",
+    "syncthing",
     "tmux",
     "vim",
     "vim-gtk",
