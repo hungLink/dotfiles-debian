@@ -3,8 +3,9 @@ set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 source ~/.vimrc
 
-" Packer.nvim plugin dir
-lua require('plugins')
+
+lua require('plugins') " Packer.nvim plugin dir
+lua require('init') " lua init file we will eventually migrate to
 
 " specify binary locations
 let g:python_host_prog = '/usr/bin/python2'
@@ -31,7 +32,6 @@ noremap j m
 noremap k .
 noremap l ,
 
-lua require('init')
 inoremap <expr> <CR> complete_info().selected != -1 ?
             \ &filetype == "gdscript" ? (coc#expandable() ?  "\<C-y>" : "\<C-y><Esc>a") : "\<C-y>"
 
