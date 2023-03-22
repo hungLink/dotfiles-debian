@@ -28,3 +28,12 @@ Here's a rough example with some comments for each line explaining them:
 This format ensures that only the exact directories desired are tracked.
 With this in mind. If you want to add a directory into the .config dir, you gotta add a line in the .gitignore file that looks like the last line in the example above.
 It works this way for all files and dirs in the home dir.
+
+
+#### Autostart command under linux
+```
+sudo apt install syncthing
+curl https://raw.githubusercontent.com/syncthing/syncthing/main/etc/linux-systemd/user/syncthing.service > /usr/local/lib/systemd/system/syncthing@.service
+systemctl --user enable syncthing.service
+systemctl --user start syncthing.service
+```
